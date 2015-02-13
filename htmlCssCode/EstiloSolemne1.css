@@ -1,0 +1,149 @@
+body{
+	background: white;
+	font-family:arial,verdana;
+	font-size:13px;
+}
+
+h1{
+	color: 47699C;
+	font-family: "Verdana";
+	margin: auto; 
+}
+
+h2{
+	color: white;
+	text-align: center-left;
+	font-family: "Verdana";
+	margin: auto;
+}
+
+h3{
+	color: 47699C;
+	font-family: "Verdana";
+	margin: auto;
+}
+
+h4{
+	color: #FAFAFA;
+	font-family: "Verdana";
+	margin: auto;
+}
+ul{
+	margin: 0px;
+	padding: 1px 20px;
+	
+}
+
+
+
+.all {
+	width:980px;
+	background-color:#CEE3F6;
+	margin: auto;
+	height: 800px;
+	padding: 90px 0px;
+}
+
+.caja{
+	background-color: white;
+	width: 790px;
+	height: 750px;
+	margin: auto;
+	float: center;
+}
+
+.cabecera{
+	background-image: url(images/cabecera.png); 
+	width: 790px;
+	height: 150px;
+	margin: auto;
+
+}
+
+.texto{
+	padding: 0px 20px;
+}
+
+.contenido{
+	height: 530px;
+}
+
+.menuhorizontal{
+	background-image: url(images/nav.png);
+	width: 790px;
+	height: 38px;
+	margin: auto;
+}
+
+.menuhorizontal ul li {
+	display: inline;
+	padding: 0px 15px;
+}
+.menuhorizontal ul img{
+	float:left;
+}
+.menuhorizontal ul li a{
+	text-decoration: none;
+	float: left;
+	display:block;
+	padding:5px 15px
+}
+.menuhorizontal ul li a:hover{
+	background-color: #58ACFA;
+}
+
+.menuvertical{
+	width: 180px;
+	height: 490px;
+	padding: 20px 20px;
+	text-align: justify;
+	float: left;
+}
+
+.menuvertical ul{
+	padding:0;
+}
+.menuvertical ul li {
+	list-style-type: none;
+}
+.menuvertical ul li a{
+	text-decoration: none;
+	float: center;
+	display:block;
+	padding:10px;
+}
+.menuvertical ul li a:hover{
+	background-color: #58ACFA;
+}
+
+.informacion{
+	width: 526px;
+	height: 490px;
+	float: left;
+	padding: 20px 20px;
+	text-align: justify;
+}
+
+.barrainferior{
+	background-image: url(images/nav.png);
+	height: 38px;
+}
+.barrainferior img{
+	float:left;
+}
+.barrainferior ul{
+	list-style-type: none;
+	text-align:center;
+}
+.barrainferior ul li{
+	display:inline;
+}
+.barrainferior p{
+	margin:0;
+	text-align:center;
+}
+
+a:link{color:gray;}    /* unvisited link */
+a:visited {color:gray;} /* visited link */
+a:hover {color:black;}   /* mouse over link */
+a:active {color:gray;}  /* selected link */

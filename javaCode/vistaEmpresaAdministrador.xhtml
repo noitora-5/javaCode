@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view contentType="text/html">
+        <h:outputStylesheet name="css/estilo.css"/>
+    
+        <h:head>
+                <f:facet name="first">
+                    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                    <title>Power Led Solar</title>
+                </f:facet>
+        </h:head>
+    
+        <h:body>
+            <div id="norte">
+                <p:graphicImage value="/image/bannerpowerb2.jpg" width="1235" height="150" />
+                
+                <div id="login">      
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <h:outputLabel for="usuario" value="Usuario:"/>
+                        <h:outputLabel  value="#{LoginBean.nickname}"/>
+                        <h:outputLabel for="tipo" value="Paterno:"/>
+                        <h:outputLabel  value="#{LoginBean.usuario.paternoUsuario}"/>
+                        <h:form id="cerrar">
+                            <h:commandButton action="#{LoginBean.cerrarSesion}" value="Cerrar Sesion" />
+                        </h:form>
+                    </h:panelGrid>
+                </div>
+            </div>
+        
+            <div id="navbar">
+                <h:form>  
+                    <p:growl id="messages"/>    
+                    <p:menubar>
+                        <p:submenu label="Inicio" icon="ui-icon-document">    
+                         <p:menuitem value="Inicio de Administrador" url="/faces/administrador/indexAdministrador.xhtml" />   
+                        </p:submenu>
+                        
+                        <p:submenu label="Solicitud" icon="ui-icon-document">    
+                         <p:menuitem value="Revisar Solicitudes" url="/faces/administrador/solicitud/listarSolicitudAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Cotización" icon="ui-icon-document">     
+                         <p:menuitem value="En Espera de Respuesta" url="/faces/administrador/cotizacion/listarCotizacionListaAdministrador.xhtml" />
+                         <p:menuitem value="Aceptadas" url="/faces/administrador/cotizacion/listarCotizacionAceptadaAdministrador.xhtml" />
+                         <p:menuitem value="Rechazadas" url="/faces/administrador/cotizacion/listarCotizacionRechazadaAdministrador.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Pedido" icon="ui-icon-document">     
+                         <p:menuitem value="En Espera de Inicio" url="/faces/administrador/pedido/listarPedidoAceptadaAdministrador.xhtml" />
+                         <p:menuitem value="En Fabricación" url="/faces/administrador/pedido/listarPedidoEnProcesoAdministrador.xhtml" />
+                         <p:menuitem value="Terminados" url="/faces/administrador/pedido/listarPedidoTerminadoAdministrador.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Servicio Técnico" icon="ui-icon-document">       
+                         <p:menuitem value="Pendientes de Revisión" url="/faces/administrador/serviciotecnico/listarRevisionPendienteAdministrador.xhtml" />
+                         <p:menuitem value="En Reparación" url="/faces/administrador/serviciotecnico/listarRevisionEnReparacionAdministrador.xhtml" />
+                         <p:menuitem value="Reparados" url="/faces/administrador/serviciotecnico/listarRevisionReparadosAdministrador.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Empresas" icon="ui-icon-gear">    
+                         <p:menuitem value="Crear Empresa" url="/faces/administrador/empresa/crearEmpresaAdministrador.xhtml" />   
+                         <p:menuitem value="Pendientes de Revision" url="/faces/administrador/empresa/listarEmpresaPendienteAdministrador.xhtml" />
+                         <p:menuitem value="Actuales" url="/faces/administrador/empresa/listarEmpresaAceptadaAdministrador.xhtml" />
+                         <p:menuitem value="Rechazadas" url="/faces/administrador/empresa/listarEmpresaRechazadaAdministrador.xhtml" />
+                         <p:separator />
+                         <p:menuitem value="Ver Datos PowerLed Solar" url="/faces/administrador/empresa/vistaEmpresaAdministrador.xhtml" /> 
+                        </p:submenu>
+                        
+                        <p:submenu label="Usuario" icon="ui-icon-gear">    
+                         <p:menuitem value="Cambiar Contraseña" url="/faces/administrador/usuario/cambiarContrasenaUsuarioAdministrador.xhtml" />
+                         <p:menuitem value="Cambiar Datos" url="/faces/administrador/usuario/editarUsuarioAdministrador.xhtml" />
+                          <p:separator />
+                         <p:menuitem value="Ver Datos" url="/faces/administrador/usuario/vistaUsuarioAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Materia Prima" icon="ui-icon-pencil">    
+                         <p:menuitem value="Agregar" url="/faces/administrador/materiaprima/crearMateriaPrimaAdministrador.xhtml" />   
+                         <p:menuitem value="Listar" url="/faces/administrador/materiaprima/listarMateriaPrimaAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Inventario" icon="ui-icon-pencil">      
+                         <p:menuitem value="Listar Materia Prima" url="/faces/administrador/inventario/listarInventarioAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Informes" icon="ui-icon-pencil">      
+                         <p:menuitem value="Revisar Procesos" url="/faces/administrador/informe/seguimientoTicketAdministrador.xhtml" />  
+                         <p:menuitem value="Cotización / Pedidos" url="/faces/administrador/informe/gestionCotizacionPedidoAdministrador.xhtml" icon="ui-icon-star" />  
+                         <p:menuitem value="Ventas por Mes" url="/faces/administrador/informe/gestionMesAdministrador.xhtml" icon="ui-icon-star" /> 
+                         <p:menuitem value="Tiempo Prom. Producción" url="/faces/administrador/informe/gestionTiempoAdministrador.xhtml" icon="ui-icon-star" />
+                         <p:menuitem value="Comparación" url="/faces/administrador/informe/gestionTotalAdministrador.xhtml" icon="ui-icon-star" />
+                        </p:submenu>
+                        
+                    </p:menubar> 
+                </h:form>  
+            </div>
+            
+            <div id="container">
+                
+                <div id="centro" align="center">
+                    
+                    <h:form>
+                           
+                            <p:panelGrid columns="2">  
+                                <f:facet name="header">  
+                                    Datos de la Empresa   
+                                </f:facet>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_nombreEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.nombreEmpresa}" title="#{bundle.ViewEmpresaTitle_nombreEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_rolEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.rolEmpresa}" title="#{bundle.ViewEmpresaTitle_rolEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_direccionEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.direccionEmpresa}" title="#{bundle.ViewEmpresaTitle_direccionEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_telefonoEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.telefonoEmpresa}" title="#{bundle.ViewEmpresaTitle_telefonoEmpresa}" style="float:right" />
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_estadoEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.estadoEmpresa}" title="#{bundle.ViewEmpresaTitle_estadoEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_nombreRegion}"/>
+                                    <h:outputText value="#{LoginBean.empresa.nombreRegion}" title="#{bundle.ViewEmpresaTitle_nombreRegion}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_nombreCiudad}"/>
+                                    <h:outputText value="#{LoginBean.empresa.nombreCiudad}" title="#{bundle.ViewEmpresaTitle_nombreCiudad}"/>
+                            </p:panelGrid> 
+                        
+                        </h:form>
+                    
+                </div>
+                
+            </div>
+            
+        <div id="footer">
+            <p:graphicImage value="/image/footerb4.jpg" width="1560" height="150" />
+        </div>
+               
+        </h:body>
+    </f:view>
+</html>

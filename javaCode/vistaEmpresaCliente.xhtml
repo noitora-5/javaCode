@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view contentType="text/html">
+        <h:outputStylesheet name="css/estilo.css"/>
+    
+        <h:head>
+                <f:facet name="first">
+                    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                    <title>Power Led Solar</title>
+                </f:facet>
+        </h:head>
+    
+        <h:body>
+            <div id="norte">
+                <p:graphicImage value="/image/bannerpowerb2.jpg" width="1235" height="150" />
+                
+                <div id="login">      
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <h:outputLabel for="usuario" value="Usuario:"/>
+                        <h:outputLabel  value="#{LoginBean.nickname}"/>
+                        <h:outputLabel for="tipo" value="Empresa:"/>
+                        <h:outputLabel  value="#{LoginBean.empresa.nombreEmpresa}"/>
+                        <h:form id="cerrar">
+                            <h:commandButton action="#{LoginBean.cerrarSesion}" value="Cerrar Sesion" />
+                        </h:form>
+                    </h:panelGrid>
+                </div>
+                
+            </div>
+        
+            <div id="navbar">
+                <h:form>  
+                    <p:growl id="messages"/>    
+                    <p:menubar>
+                        <p:submenu label="Inicio" icon="ui-icon-document">    
+                         <p:menuitem value="Inicio de Cliente" url="/faces/cliente/indexCliente.xhtml" />   
+                        </p:submenu>
+                        
+                        <p:submenu label="Solicitud de Cotización" icon="ui-icon-document">    
+                         <p:menuitem value="Crear una Nueva" url="/faces/cliente/solicitud/indicacionesCrearSolicitudCliente.xhtml" />  
+                         <p:menuitem value="Ver Todas" url="/faces/cliente/solicitud/listarSolicitudCliente.xhtml" />  
+                        </p:submenu>
+         
+                        <p:submenu label="Cotizaciones" icon="ui-icon-document">    
+                         <p:menuitem value="Pendientes por Revision" url="/faces/cliente/cotizacion/listarCotizacionPendienteCliente.xhtml" />
+                         <p:menuitem value="Revisar el Historial" url="/faces/cliente/cotizacion/listarCotizacionCliente.xhtml" />
+                        </p:submenu>
+
+                        <p:submenu label="Pedido" icon="ui-icon-document">    
+                         <p:menuitem value="En estado de fabricación" url="/faces/cliente/pedido/listarPedidoFabricacionCliente.xhtml" />
+                         <p:menuitem value="Trabajos Terminados" url="/faces/cliente/pedido/listarPedidoCliente.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Servicio Técnico" icon="ui-icon-document">    
+                         <p:menuitem value="Crear Servicio" url="/faces/cliente/serviciotecnico/indicacionesCrearRevisionCliente.xhtml" />
+                         <p:menuitem value="Servicios Pendientes" url="/faces/cliente/serviciotecnico/listarRevisionPendienteCliente.xhtml" />
+                         <p:menuitem value="Servicios Terminados" url="/faces/cliente/serviciotecnico/listarRevisionCliente.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Datos Empresa" icon="ui-icon-gear">    
+                         <p:menuitem value="Editar Datos" url="/faces/cliente/empresa/editarEmpresaCliente.xhtml" />   
+                         <p:separator />  
+                         <p:menuitem value="Ver Datos" url="/faces/cliente/empresa/vistaEmpresaCliente.xhtml" />  
+                        </p:submenu>
+                                         
+                        <p:submenu label="Usuario" icon="ui-icon-gear">    
+                         <p:menuitem value="Editar Datos" url="/faces/cliente/usuario/editarUsuarioCliente.xhtml" />
+                         <p:menuitem value="Cambiar Contraseña" url="/faces/cliente/usuario/cambioContrasenaUsuarioCliente.xhtml" /> 
+                          <p:separator />
+                         <p:menuitem value="Ver Datos" url="/faces/cliente/usuario/vistaUsuarioCliente.xhtml" />  
+                        </p:submenu>
+                        
+                    </p:menubar>   
+                </h:form>  
+            </div>
+            
+            <div id="right">
+                <p:panel header="PowerLed Solar">
+                    <p>
+                        PowerLed Solar se encuentra ubicada en Angel Pimentel 663, Comuna de La Florida, 
+                        Región Metropolitana, Chile.  
+                    </p>
+                    <p>
+                        Su representante legal es José Peña Tapia. Para más información de contacto sobre 
+                        la empresa y del sitio web, puede escribirnos al correo electrónico flechasled@gmail.com.
+                    </p>
+                    <p>
+                        Teléfono de Contacto y Fax:
+                    </p>
+                    <p>
+                        02-2655303
+                    </p>
+                    <p>
+                        Teléfono Movil: 09-91023078
+                    </p>  
+                </p:panel>
+            </div>
+            
+            <div id="left">
+                <p:panel header="Tambien en Facebook">
+                    <p>
+                    Síguenos en Facebook, opina y comenta, y si tienes problemas con tu cuenta, contáctanos de una manera más rápida.
+                    </p>
+                    
+                    <!-- Facebook Badge START --><a href="http://www.facebook.com/powerled.solar" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="PowerLed Solar">PowerLed Solar</a><br/><a href="http://www.facebook.com/powerled.solar" target="_TOP" title="PowerLed Solar"><img src="https://badge.facebook.com/badge/" style="border: 0px;" /></a><br/><a href="https://www.facebook.com/badges/" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Make your own badge!">Create Your Badge</a><!-- Facebook Badge END -->
+                    
+                </p:panel>
+            </div>
+            
+            <div id="container">
+                
+                <div id="centro" align= "center">
+                    
+                    <h:form>
+                           
+                            <p:panelGrid columns="2">  
+                                <f:facet name="header">  
+                                    Datos de la Empresa   
+                                </f:facet>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_nombreEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.nombreEmpresa}" title="#{bundle.ViewEmpresaTitle_nombreEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_rolEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.rolEmpresa}" title="#{bundle.ViewEmpresaTitle_rolEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_direccionEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.direccionEmpresa}" title="#{bundle.ViewEmpresaTitle_direccionEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_telefonoEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.telefonoEmpresa}" title="#{bundle.ViewEmpresaTitle_telefonoEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_estadoEmpresa}"/>
+                                    <h:outputText value="#{LoginBean.empresa.estadoEmpresa}" title="#{bundle.ViewEmpresaTitle_estadoEmpresa}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_nombreRegion}"/>
+                                    <h:outputText value="#{LoginBean.empresa.nombreRegion}" title="#{bundle.ViewEmpresaTitle_nombreRegion}"/>
+                                    <h:outputText value="#{bundle.ViewEmpresaLabel_nombreCiudad}"/>
+                                    <h:outputText value="#{LoginBean.empresa.nombreCiudad}" title="#{bundle.ViewEmpresaTitle_nombreCiudad}"/>
+                            </p:panelGrid> 
+                        
+                        </h:form>
+                    
+                </div>
+                
+            </div>
+            
+        <div id="footer">
+            <p:graphicImage value="/image/footerb4.jpg" width="1570" height="150" />
+        </div>
+               
+        </h:body>
+    </f:view>
+</html>

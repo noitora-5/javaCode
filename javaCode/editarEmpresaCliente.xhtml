@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view contentType="text/html">
+        <h:outputStylesheet name="css/estilo.css"/>
+    
+        <h:head>
+                <f:facet name="first">
+                    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                    <title>Power Led Solar</title>
+                </f:facet>
+        </h:head>
+    
+        <h:body>
+            <div id="norte">
+                <p:graphicImage value="/image/bannerpowerb2.jpg" width="1235" height="150" />
+                
+                <div id="login">      
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <h:outputLabel for="usuario" value="Usuario:"/>
+                        <h:outputLabel  value="#{LoginBean.nickname}"/>
+                        <h:outputLabel for="tipo" value="Empresa:"/>
+                        <h:outputLabel  value="#{LoginBean.empresa.nombreEmpresa}"/>
+                        <h:form id="cerrar">
+                            <h:commandButton action="#{LoginBean.cerrarSesion}" value="Cerrar Sesion" />
+                        </h:form>
+                    </h:panelGrid>
+                </div>
+                
+            </div>
+        
+            <div id="navbar">
+                <h:form>  
+                    <p:growl id="messages"/>    
+                    <p:menubar>
+                        <p:submenu label="Inicio" icon="ui-icon-document">    
+                         <p:menuitem value="Inicio de Cliente" url="/faces/cliente/indexCliente.xhtml" />   
+                        </p:submenu>
+                        
+                        <p:submenu label="Solicitud de Cotización" icon="ui-icon-document">    
+                         <p:menuitem value="Crear una Nueva" url="/faces/cliente/solicitud/indicacionesCrearSolicitudCliente.xhtml" />  
+                         <p:menuitem value="Ver Todas" url="/faces/cliente/solicitud/listarSolicitudCliente.xhtml" />  
+                        </p:submenu>
+         
+                        <p:submenu label="Cotizaciones" icon="ui-icon-document">    
+                         <p:menuitem value="Pendientes por Revision" url="/faces/cliente/cotizacion/listarCotizacionPendienteCliente.xhtml" />
+                         <p:menuitem value="Revisar el Historial" url="/faces/cliente/cotizacion/listarCotizacionCliente.xhtml" />
+                        </p:submenu>
+
+                        <p:submenu label="Pedido" icon="ui-icon-document">    
+                         <p:menuitem value="En estado de fabricación" url="/faces/cliente/pedido/listarPedidoFabricacionCliente.xhtml" />
+                         <p:menuitem value="Trabajos Terminados" url="/faces/cliente/pedido/listarPedidoCliente.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Servicio Técnico" icon="ui-icon-document">    
+                         <p:menuitem value="Crear Servicio" url="/faces/cliente/serviciotecnico/indicacionesCrearRevisionCliente.xhtml" />
+                         <p:menuitem value="Servicios Pendientes" url="/faces/cliente/serviciotecnico/listarRevisionPendienteCliente.xhtml" />
+                         <p:menuitem value="Servicios Terminados" url="/faces/cliente/serviciotecnico/listarRevisionCliente.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Datos Empresa" icon="ui-icon-gear">    
+                         <p:menuitem value="Editar Datos" url="/faces/cliente/empresa/editarEmpresaCliente.xhtml" />   
+                         <p:separator />  
+                         <p:menuitem value="Ver Datos" url="/faces/cliente/empresa/vistaEmpresaCliente.xhtml" />  
+                        </p:submenu>
+                                         
+                        <p:submenu label="Usuario" icon="ui-icon-gear">    
+                         <p:menuitem value="Editar Datos" url="/faces/cliente/usuario/editarUsuarioCliente.xhtml" />
+                         <p:menuitem value="Cambiar Contraseña" url="/faces/cliente/usuario/cambioContrasenaUsuarioCliente.xhtml" /> 
+                          <p:separator />
+                         <p:menuitem value="Ver Datos" url="/faces/cliente/usuario/vistaUsuarioCliente.xhtml" />  
+                        </p:submenu>
+                        
+                    </p:menubar>   
+                </h:form>  
+            </div>
+            
+            <div id="container">
+                
+                <div id="centro" align="center">
+                    
+                    <h:form>
+                           
+                            <p:panelGrid columns="2">  
+                                <f:facet name="header">  
+                                    Datos de la Empresa  
+                                </f:facet>  
+                                    <h:outputLabel value="#{bundle.EditEmpresaLabel_nombreEmpresa}" for="nombreEmpresa" />
+                                    <p:inputText id="nombreEmpresa" value="#{empresaController.selected.nombreEmpresa}" title="#{bundle.EditEmpresaTitle_nombreEmpresa}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_nombreEmpresa}" disabled="true"/>
+                                    <h:outputLabel value="#{bundle.EditEmpresaLabel_rolEmpresa}" for="rolEmpresa" />
+                                    <p:inputText id="rolEmpresa" value="#{empresaController.selected.rolEmpresa}" title="#{bundle.EditEmpresaTitle_rolEmpresa}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_rolEmpresa}" disabled="true"/>
+                                    <h:outputLabel value="#{bundle.EditEmpresaLabel_direccionEmpresa}" for="direccionEmpresa" />
+                                    <p:inputText id="direccionEmpresa" value="#{empresaController.selected.direccionEmpresa}" title="#{bundle.EditEmpresaTitle_direccionEmpresa}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_direccionEmpresa}"/>
+                                    <h:outputLabel value="#{bundle.EditEmpresaLabel_telefonoEmpresa}" for="telefonoEmpresa" />
+                                    <p:inputText id="telefonoEmpresa" value="#{empresaController.selected.telefonoEmpresa}" title="#{bundle.EditEmpresaTitle_telefonoEmpresa}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_telefonoEmpresa}"/>
+                                    <h:outputLabel value="#{bundle.EditEmpresaLabel_nombreRegion}" for="nombreRegion" />
+                                    <p:selectOneMenu id="nombreRegion" value="#{empresaController.selected.nombreRegion}" title="#{bundle.EditEmpresaTitle_nombreRegion}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_nombreRegion}">
+                                        <f:selectItems value="#{regionController.itemsAvailableSelectOne}"/>
+                                    </p:selectOneMenu>
+                                    <h:outputLabel value="#{bundle.EditEmpresaLabel_nombreCiudad}" for="nombreCiudad" />
+                                    <p:selectOneMenu id="nombreCiudad" value="#{empresaController.selected.nombreCiudad}" title="#{bundle.EditEmpresaTitle_nombreCiudad}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_nombreCiudad}">
+                                        <f:selectItems value="#{ciudadController.itemsAvailableSelectOne}"/>
+                                    </p:selectOneMenu>      
+                                <f:facet name="footer">
+                                    <p>
+                                        Si realiza el cambio de la información, esta deberá ser revisada por el Administrador antes que el usuario pueda volver 
+                                        a entrar a su cuenta. El administrador posee 3 días hábiles para revisar la nueva información la que podría ser rechazada 
+                                        denegando el ingreso a la cuenta. Tenga esto en cuenta antes de actualizar sus datos.
+                                    </p>
+                                    <p:commandLink action="#{empresaController.update}" value="#{bundle.EditEmpresaSaveLink}"/>  
+                                </f:facet>  
+                            </p:panelGrid> 
+                            <div id="invisible">
+                                <p:selectOneMenu id="estadoEmpresa" value="#{empresaController.selected.estadoEmpresa}" title="#{bundle.EditEmpresaTitle_estadoEmpresa}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_estadoEmpresa}">  
+                                    <f:selectItem itemLabel="Pendiente" itemValue="Pendiente" />   
+                                </p:selectOneMenu>
+                            </div>
+                        </h:form>
+                </div>
+            </div>
+            
+        <div id="footer">
+            <p:graphicImage value="/image/footerb4.jpg" width="1570" height="150" />
+        </div>
+               
+        </h:body>
+    </f:view>
+</html>

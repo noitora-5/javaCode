@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <f:view contentType="text/html">
+        <h:outputStylesheet name="css/estilo.css"/>
+    
+        <h:head>
+                <f:facet name="first">
+                    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                    <title>Power Led Solar</title>
+                </f:facet>
+        </h:head>
+    
+        <h:body>
+            <div id="norte">
+                <p:graphicImage value="/image/bannerpowerb2.jpg" width="1235" height="150" />
+                
+                <div id="login">      
+                    <h:form id="form1">  
+                        <h:panelGrid columns="2" cellpadding="5">  
+                            <h:outputLabel for="nickname" value="NickName:" />  
+                            <p:inputText value="#{LoginBean.nickname}" id="nickname" required="true" label="nickname" />  
+                            <h:outputLabel for="contrasena" value="Contraseña:" />  
+                            <p:password value="#{LoginBean.contrasena}" id="contrasena" required="true" label="contrasena" />  
+                            <f:facet name="footer">  
+                                <h:commandLink action="#{LoginBean.login}" value="LogIn" />
+                            </f:facet>  
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+                
+            </div>
+
+            <div id="navbar">
+                <h:form>    
+                    <p:breadCrumb>  
+                        <p:menuitem value="Home" url="indexHome.xhtml" />  
+                        <p:menuitem value="Historia" url="historia.xhtml" />  
+                        <p:menuitem value="Tipo Productos" url="tipoProductos.xhtml" />  
+                        <p:menuitem value="Registra tu Empresa" url="registroEmpresaHome.xhtml" />
+                    </p:breadCrumb>   
+                </h:form>  
+            </div>
+            
+            <div id="right">
+                <p:panel header="PowerLed Solar">
+                    <p>
+                        PowerLed Solar se encuentra ubicada en Angel Pimentel 663, Comuna de La Florida,
+                        Region Metropolitana, Chile.  
+                    </p>
+                    <p>
+                        Su representante legal es José Peña Tapia. Para mas información de contacto sobre 
+                        la empresa y del sitio web, puede escribirnos al correo electrónico flechasled@gmail.com.
+                    </p>
+                    <p>
+                        Teléfono de Contacto y Fax:
+                    </p>
+                    <p>
+                        02-2655303
+                    </p>
+                    <p>
+                        Teléfono Movil: 09-91023078
+                    </p>  
+                </p:panel>
+            </div>
+            
+            <div id="left">
+                <p:panel header="Tambien en Facebook">
+                    <p>
+                    Síguenos en Facebook, opina y comenta, y si tienes problemas con tu cuenta, contáctanos de una manera más rápida.
+                    </p>
+                    
+                    <!-- Facebook Badge START --><a href="http://www.facebook.com/powerled.solar" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="PowerLed Solar">PowerLed Solar</a><br/><a href="http://www.facebook.com/powerled.solar" target="_TOP" title="PowerLed Solar"><img src="https://badge.facebook.com/badge/" style="border: 0px;" /></a><br/><a href="https://www.facebook.com/badges/" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Make your own badge!">Create Your Badge</a><!-- Facebook Badge END -->
+                    
+                </p:panel>
+            </div>
+            
+            <div id="container">
+                <div id="centro" align= "center">
+                    <h:form>              
+                        <p:panelGrid columns="2">  
+                            <f:facet name="header">  
+                                Información de su Empresa
+                            </f:facet>  
+                                <h:outputLabel value="#{bundle.CreateEmpresaLabel_nombreEmpresa}" for="nombreEmpresa" />
+                                <p:inputText id="nombreEmpresa" value="#{empresaController.selected.nombreEmpresa}" title="#{bundle.CreateEmpresaTitle_nombreEmpresa}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_nombreEmpresa}"/>
+                                <h:outputLabel value="#{bundle.CreateEmpresaLabel_rolEmpresa}" for="rolEmpresa" />
+                                <p:inputText id="rolEmpresa" value="#{empresaController.selected.rolEmpresa}" title="#{bundle.CreateEmpresaTitle_rolEmpresa}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_rolEmpresa}"/>
+                                <h:outputLabel value="#{bundle.CreateEmpresaLabel_direccionEmpresa}" for="direccionEmpresa" />
+                                <p:inputText id="direccionEmpresa" value="#{empresaController.selected.direccionEmpresa}" title="#{bundle.CreateEmpresaTitle_direccionEmpresa}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_direccionEmpresa}"/>
+                                <h:outputLabel value="#{bundle.CreateEmpresaLabel_nombreRegion}" for="nombreRegion" />
+                                <p:selectOneMenu id="nombreRegion" value="#{empresaController.selected.nombreRegion}" title="#{bundle.CreateEmpresaTitle_nombreRegion}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_nombreRegion}">
+                                    <f:selectItems value="#{regionController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                                <h:outputLabel value="#{bundle.CreateEmpresaLabel_nombreCiudad}" for="nombreCiudad" />
+                                <p:selectOneMenu id="nombreCiudad" value="#{empresaController.selected.nombreCiudad}" title="#{bundle.CreateEmpresaTitle_nombreCiudad}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_nombreCiudad}">
+                                    <f:selectItems value="#{ciudadController.itemsAvailableSelectOne}"/>
+                                </p:selectOneMenu>
+                                <h:outputLabel value="#{bundle.CreateEmpresaLabel_telefonoEmpresa}" for="telefonoEmpresa" />
+                                <p:inputText id="telefonoEmpresa" value="#{empresaController.selected.telefonoEmpresa}" title="#{bundle.CreateEmpresaTitle_telefonoEmpresa}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_telefonoEmpresa}"/>         
+                            <f:facet name="footer">  
+                                <h:commandLink action="#{empresaController.createh}" value="#{bundle.CreateEmpresaSaveLink}" /> 
+                            </f:facet>     
+                        </p:panelGrid>
+                        <div id="invisible">
+                            <p:selectOneMenu id="estadoEmpresa" value="#{empresaController.selected.estadoEmpresa}"  title="#{bundle.CreateEmpresaTitle_estadoEmpresa}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_estadoEmpresa}">  
+                                <f:selectItem itemLabel="Pendiente" itemValue="Pendiente" />   
+                            </p:selectOneMenu>
+                        </div>
+                    </h:form> 
+                </div>
+            </div>
+            
+            <div id="footer">
+                <p:graphicImage value="/image/footerb4.jpg" width="1570" height="150" />
+            </div>
+               
+        </h:body>
+    </f:view>
+</html>

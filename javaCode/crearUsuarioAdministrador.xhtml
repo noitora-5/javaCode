@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view contentType="text/html">
+        <h:outputStylesheet name="css/estilo.css"/>
+    
+        <h:head>
+                <f:facet name="first">
+                    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                    <title>Power Led Solar</title>
+                </f:facet>
+        </h:head>
+    
+        <h:body>
+            <div id="norte">
+                <p:graphicImage value="/image/bannerpowerb2.jpg" width="1235" height="150" />     
+                <div id="login">      
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <h:outputLabel for="usuario" value="Usuario:"/>
+                        <h:outputLabel  value="#{LoginBean.nickname}"/>
+                        <h:outputLabel for="tipo" value="Paterno:"/>
+                        <h:outputLabel  value="#{LoginBean.usuario.paternoUsuario}"/>
+                        <h:form id="cerrar">
+                            <h:commandButton action="#{LoginBean.cerrarSesion}" value="Cerrar Sesion" />
+                        </h:form>
+                    </h:panelGrid>
+                </div>
+            </div>
+        
+            <div id="navbar">
+                <h:form>  
+                    <p:growl id="messages"/>    
+                    <p:menubar>
+                        <p:submenu label="Inicio" icon="ui-icon-document">    
+                         <p:menuitem value="Inicio de Administrador" url="/faces/administrador/indexAdministrador.xhtml" />   
+                        </p:submenu>
+                        
+                        <p:submenu label="Solicitud" icon="ui-icon-document">    
+                         <p:menuitem value="Revisar Solicitudes" url="/faces/administrador/solicitud/listarSolicitudAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Cotización" icon="ui-icon-document">     
+                         <p:menuitem value="En Espera de Respuesta" url="/faces/administrador/cotizacion/listarCotizacionListaAdministrador.xhtml" />
+                         <p:menuitem value="Aceptadas" url="/faces/administrador/cotizacion/listarCotizacionAceptadaAdministrador.xhtml" />
+                         <p:menuitem value="Rechazadas" url="/faces/administrador/cotizacion/listarCotizacionRechazadaAdministrador.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Pedido" icon="ui-icon-document">     
+                         <p:menuitem value="En Espera de Inicio" url="/faces/administrador/pedido/listarPedidoAceptadaAdministrador.xhtml" />
+                         <p:menuitem value="En Fabricación" url="/faces/administrador/pedido/listarPedidoEnProcesoAdministrador.xhtml" />
+                         <p:menuitem value="Terminados" url="/faces/administrador/pedido/listarPedidoTerminadoAdministrador.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Servicio Técnico" icon="ui-icon-document">       
+                         <p:menuitem value="Pendientes de Revisión" url="/faces/administrador/serviciotecnico/listarRevisionPendienteAdministrador.xhtml" />
+                         <p:menuitem value="En Reparación" url="/faces/administrador/serviciotecnico/listarRevisionEnReparacionAdministrador.xhtml" />
+                         <p:menuitem value="Reparados" url="/faces/administrador/serviciotecnico/listarRevisionReparadosAdministrador.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu label="Empresas" icon="ui-icon-gear">    
+                         <p:menuitem value="Crear Empresa" url="/faces/administrador/empresa/crearEmpresaAdministrador.xhtml" />   
+                         <p:menuitem value="Pendientes de Revision" url="/faces/administrador/empresa/listarEmpresaPendienteAdministrador.xhtml" />
+                         <p:menuitem value="Actuales" url="/faces/administrador/empresa/listarEmpresaAceptadaAdministrador.xhtml" />
+                         <p:menuitem value="Rechazadas" url="/faces/administrador/empresa/listarEmpresaRechazadaAdministrador.xhtml" />
+                         <p:separator />
+                         <p:menuitem value="Ver Datos PowerLed Solar" url="/faces/administrador/empresa/vistaEmpresaAdministrador.xhtml" /> 
+                        </p:submenu>
+                        
+                        <p:submenu label="Usuario" icon="ui-icon-gear">    
+                         <p:menuitem value="Cambiar Contraseña" url="/faces/administrador/usuario/cambiarContrasenaUsuarioAdministrador.xhtml" />
+                         <p:menuitem value="Cambiar Datos" url="/faces/administrador/usuario/editarUsuarioAdministrador.xhtml" />
+                          <p:separator />
+                         <p:menuitem value="Ver Datos" url="/faces/administrador/usuario/vistaUsuarioAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Materia Prima" icon="ui-icon-pencil">    
+                         <p:menuitem value="Agregar" url="/faces/administrador/materiaprima/crearMateriaPrimaAdministrador.xhtml" />   
+                         <p:menuitem value="Listar" url="/faces/administrador/materiaprima/listarMateriaPrimaAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Inventario" icon="ui-icon-pencil">      
+                         <p:menuitem value="Listar Materia Prima" url="/faces/administrador/inventario/listarInventarioAdministrador.xhtml" />  
+                        </p:submenu>
+                        
+                        <p:submenu label="Informes" icon="ui-icon-pencil">      
+                         <p:menuitem value="Revisar Procesos" url="/faces/administrador/informe/seguimientoTicketAdministrador.xhtml" />  
+                         <p:menuitem value="Cotización / Pedidos" url="/faces/administrador/informe/gestionCotizacionPedidoAdministrador.xhtml" icon="ui-icon-star" />  
+                         <p:menuitem value="Ventas por Mes" url="/faces/administrador/informe/gestionMesAdministrador.xhtml" icon="ui-icon-star" /> 
+                         <p:menuitem value="Tiempo Prom. Producción" url="/faces/administrador/informe/gestionTiempoAdministrador.xhtml" icon="ui-icon-star" />
+                         <p:menuitem value="Comparación" url="/faces/administrador/informe/gestionTotalAdministrador.xhtml" icon="ui-icon-star" />
+                        </p:submenu>
+                        
+                    </p:menubar>  
+                </h:form>  
+            </div>
+            
+            <div id="container">
+                
+                <div id="centro" align="Center">
+                    
+                    <h:form>              
+                        <p:panelGrid columns="2">  
+                            <f:facet name="header">  
+                                Información del Usuario
+                            </f:facet>  
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_nombreUsuario}" for="nombreUsuario" />
+                                <p:inputText id="nombreUsuario" value="#{usuarioController.selected.nombreUsuario}" title="#{bundle.CreateUsuarioTitle_nombreUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_nombreUsuario}"/>
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_paternoUsuario}" for="paternoUsuario" />
+                                <p:inputText id="paternoUsuario" value="#{usuarioController.selected.paternoUsuario}" title="#{bundle.CreateUsuarioTitle_paternoUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_paternoUsuario}"/>
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_maternoUsuario}" for="maternoUsuario" />
+                                <p:inputText id="maternoUsuario" value="#{usuarioController.selected.maternoUsuario}" title="#{bundle.CreateUsuarioTitle_maternoUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_maternoUsuario}"/>
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_telefonoUsuario}" for="telefonoUsuario" />
+                                <p:inputText id="telefonoUsuario" value="#{usuarioController.selected.telefonoUsuario}" title="#{bundle.CreateUsuarioTitle_telefonoUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_telefonoUsuario}"/>
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_emailUsuario}" for="emailUsuario" />
+                                <p:inputText id="emailUsuario" value="#{usuarioController.selected.emailUsuario}" title="#{bundle.CreateUsuarioTitle_emailUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_emailUsuario}"/>
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_nickUsuario}" for="nickUsuario" />
+                                <p:inputText id="nickUsuario" value="#{usuarioController.selected.nickUsuario}" title="#{bundle.CreateUsuarioTitle_nickUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_nickUsuario}"/>
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_contrasenaUsuario}" for="contrasenaUsuario" />    
+                                <p:password id="contrasenaUsuario" match="contrasenaUsuario2" label="contrasenaUsuario" value="#{usuarioController.selected.contrasenaUsuario}" title="#{bundle.CreateUsuarioTitle_contrasenaUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_contrasenaUsuario}"/>
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_contrasenaUsuario2}" for="contrasenaUsuario2" /> 
+                                <p:password id="contrasenaUsuario2" label="contrasenaUsuario2" value="#{usuarioController.selected.contrasenaUsuario}" title="#{bundle.CreateUsuarioTitle_contrasenaUsuario2}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_contrasenaUsuario2}"/>
+                            <f:facet name="footer">  
+                                <h:commandLink action="#{usuarioController.createa}" value="#{bundle.CreateUsuarioSaveLink}" /> 
+                            </f:facet>     
+                        </p:panelGrid>
+                         <div id="invisible">
+                                <h:selectOneMenu id="idEmpresa" value="#{usuarioController.selected.idEmpresa}" title="#{bundle.CreateUsuarioTitle_idEmpresa}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_idEmpresa}">
+                                    <f:selectItems value="#{empresaController.itemsAvailableSelectManyidEmpresa}"/>
+                                </h:selectOneMenu>
+                                <h:selectOneMenu id="nombreRole" value="#{usuarioController.selected.nombreRole}" title="#{bundle.CreateUsuarioTitle_nombreRole}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_nombreRole}">
+                                    <f:selectItems value="#{roleController.itemsAvailableSelectManyusuarioRole}"/>
+                                </h:selectOneMenu>
+                         </div>
+                    </h:form>
+                    
+                </div>
+                
+            </div>
+            
+        <div id="footer">
+            <p:graphicImage value="/image/footerb4.jpg" width="1570" height="150" />
+        </div>
+               
+        </h:body>
+    </f:view>
+</html>
